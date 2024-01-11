@@ -1,6 +1,6 @@
 import { Poppins } from "next/font/google";
 import './globals.css'
-import { ReduxProvider } from "@/redux/provider";
+import { ReduxProvider } from "../redux/provider";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "700"] });
 

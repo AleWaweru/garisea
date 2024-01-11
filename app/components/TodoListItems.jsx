@@ -4,7 +4,7 @@ import {
   completeTodo,
   removeTodo,
   editTodo,
-} from "@/redux/reducer/reducers";
+} from "../../redux/reducer/reducers";
 import TodoForm from './TodoForm';
 import TodoItem from './TodoItems';
 
