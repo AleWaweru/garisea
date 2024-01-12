@@ -3,6 +3,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from 'bcrypt';
 import { sql } from '@vercel/postgres';
 
+const crypto = require('crypto');
+
+// Generate a random string of 64 bytes
+const jwtSecret = crypto.randomBytes(64).toString('hex');
+
+console.log(jwtSecret);
+
+
 const handler = NextAuth({
   secret: process.env.JWT_SECRET,
   session: {
