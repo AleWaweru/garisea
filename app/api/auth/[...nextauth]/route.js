@@ -4,6 +4,7 @@ import { compare } from 'bcrypt';
 import { sql } from '@vercel/postgres';
 
 const handler = NextAuth({
+  secret: process.env.JWT_SECRET,
   session: {
     strategy: "jwt"
   },
