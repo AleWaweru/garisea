@@ -3,6 +3,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from 'bcrypt';
 import { sql } from '@vercel/postgres';
 const handler = NextAuth({
+  session: {
+    strategy: "jwt"
+  },
   providers: [
     CredentialsProvider({
       credentials: {
@@ -16,7 +19,14 @@ const handler = NextAuth({
         SELECT * FROM users WHERE email=${credentials?.email}`;
         const user = response.rows[0];
 
-        console.log({credentials});
+        const passwordCorrect = await compare(credentials?.password || "" , user.password);
+
+        if(passwordCorrect){
+          return {
+            id: user.id,
+            email: user.email,
+          };
+        }
        
         return null;
       }

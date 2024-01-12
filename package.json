@@ -15,17 +15,21 @@
     "bcrypt": "^5.1.1",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
+    "jsonwebtoken": "^9.0.2",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
     "react": "^18",
     "react-dom": "^18",
     "react-redux": "^9.0.4",
-    "redux-persist": "^6.0.0"
+    "react-toast": "^1.0.3",
+    "redux-persist": "^6.0.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/node": "20.10.8",
     "@types/react": "18.2.47",
+    "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",

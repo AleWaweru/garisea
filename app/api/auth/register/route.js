@@ -5,7 +5,6 @@ import { sql } from '@vercel/postgres';
 export async function POST(request) {
   try {
     const { username, email, password } = await request.json();
-    console.log({ username, email, password });
 
     const hashedPassword = await hash(password, 10);
 

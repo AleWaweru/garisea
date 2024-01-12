@@ -1,27 +1,24 @@
 "use client"
-import {signIn} from 'next-auth/react';
+import { getServerSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import Form from "./Form";
 
-const Login =  () => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-     signIn('credentials', {
-          email: formData.get('email'),
-          password: formData.get('password'),
-          redirect: false
-     });
+const Login = () => {
+  const router = useRouter();
 
-  };
+  useEffect(() => {
+    const checkSession = async () => {
+      const session = await getServerSession();
+      if (session) {
+        router.push("/todo");
+      }
+    };
 
-  return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2 mx-auto max-w-md mt-10">
-      <input  className="border border-black px-4" type="email" name="email" placeholder="Email" />
-      <input className="border border-black px-4" type="password" name="password" placeholder="Password" />
-      <button className="bg-blue-500 p-2" type="submit">
-        Login
-      </button>
-    </form>
-  );
+    checkSession();
+  }, [router]);
+
+  return <Form />;
 };
 
 export default Login;

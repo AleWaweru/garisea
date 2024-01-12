@@ -4,10 +4,13 @@ export const REMOVE_TODO = 'REMOVE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
 export const SET_TODOS = 'SET_TODOS';
 
-// New function to load todos from local storage
+// function to load todos from local storage
 const loadFromLocalStorage = () => {
-  const storedTodos = localStorage.getItem('todos');
-  return storedTodos ? JSON.parse(storedTodos) : null;
+  if (typeof window !== 'undefined') {
+    const storedTodos = localStorage.getItem('todos');
+    return storedTodos ? JSON.parse(storedTodos) : null;
+  }
+  return null;
 };
 
 export const addTodo = (text) => ({
@@ -30,7 +33,7 @@ export const editTodo = (index, newText) => ({
   payload: { index, newText },
 });
 
-// New action creator for setting todos
+//action creator for setting todos
 export const setTodos = (todos) => ({
   type: SET_TODOS,
   payload: todos,
@@ -40,9 +43,11 @@ const initialState = {
   todos: loadFromLocalStorage() || [],
 };
 
-// New function to save todos to local storage
+// function to save todos to local storage
 const saveToLocalStorage = (todos) => {
-  localStorage.setItem('todos', JSON.stringify(todos));
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -93,5 +98,6 @@ export const todoReducer = (state = initialState, action) => {
 
     default:
       return state;
+
   }
 };
