@@ -1,4 +1,4 @@
-// Form.js
+"use client"
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";

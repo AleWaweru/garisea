@@ -21,6 +21,7 @@ import React, { useState } from 'react'
       };
     
       return (
+        <>
         <div
           className={`todo p-4 m-2  border rounded ${
             todo.isCompleted ? 'line-through' : ''
@@ -75,6 +76,7 @@ import React, { useState } from 'react'
             </>
           )}
         </div>
+        </>
       );
     };
 

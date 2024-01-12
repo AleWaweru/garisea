@@ -1,6 +1,6 @@
 "use client"
 import { useEffect } from 'react';
-import { getServerSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth';
 import { useRouter } from 'next/navigation';
 
 import Form from './Form';

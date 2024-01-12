@@ -35,6 +35,7 @@ const TodoListItems = () => {
   };
 
   return (
+    <>
     <div className="todo-list mx-auto w-full mt-8 p-4 md:max-w-md">
       <h1 className="text-2xl font-bold mb-4">MY TODOLIST</h1>
       <TodoForm addTodo={handleAddTodo} />
@@ -49,6 +50,7 @@ const TodoListItems = () => {
         />
       ))}
     </div>
+    </>
   );
 };
 
