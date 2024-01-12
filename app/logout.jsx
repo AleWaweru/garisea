@@ -18,7 +18,7 @@ export default function Logout() {
         cursor: 'pointer',
         color: 'blue',
         textDecoration: 'underline',
-        marginLeft: '10px', // Add other styles as needed
+        marginLeft: '10px', 
       }}
     >
       Logout
