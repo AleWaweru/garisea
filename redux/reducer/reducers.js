@@ -6,9 +6,9 @@ export const SET_TODOS = "SET_TODOS";
 
 // function to load todos from local storage
 const loadFromLocalStorage = () => {
-  if (window) {
+  if (process.browser) {
     const storedTodos = localStorage.getItem("todos");
-    return storedTodos ? JSON.parse(storedTodos) : null;
+    return storedTodos ? JSON.parse(storedTodos) : [];
   }
   return null;
 };
@@ -33,7 +33,7 @@ export const editTodo = (index, newText) => ({
   payload: { index, newText },
 });
 
-//action creator for setting todos
+// action creator for setting todos
 export const setTodos = (todos) => ({
   type: SET_TODOS,
   payload: todos,
@@ -45,7 +45,7 @@ const initialState = {
 
 // function to save todos to local storage
 const saveToLocalStorage = (todos) => {
-  if (window) {
+  if (process.browser) {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
 };
@@ -65,7 +65,7 @@ export const todoReducer = (state = initialState, action) => {
       const completeState = {
         ...state,
         todos: state.todos.map((todo, i) =>
-          i === index ? { ...todo, isCompleted } : todo,
+          i === index ? { ...todo, isCompleted } : todo
         ),
       };
       saveToLocalStorage(completeState.todos);
@@ -84,7 +84,7 @@ export const todoReducer = (state = initialState, action) => {
       const editState = {
         ...state,
         todos: state.todos.map((todo, i) =>
-          i === editIndex ? { ...todo, text: newText } : todo,
+          i === editIndex ? { ...todo, text: newText } : todo
         ),
       };
       saveToLocalStorage(editState.todos);
