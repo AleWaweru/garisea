@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+    pages: {
+        signIn: '/todo',
+      },
+      
+};
 
 module.exports = nextConfig;
