@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+TODO LIST APP
 
 ## Getting Started
 
@@ -6,31 +6,86 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<a name="readme-top"></a>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# 📖 [garisea] <a name="about-project"></a>
+
+This is a a TODOLIST where users can add to the list, edit, mark as complete and delete.When a user visits the site, they are prompted to login so as to get to the todo page.First the user has to register, then use the details to log in.
+
+**[garisea]** This is React/Next JS project
+
+## 🛠 Built With <a name="built-with"></a>
+
+create-next-app
+
+### Tech Stack <a name="tech-stack"></a>
+
+Next JS
+React
+Vercel Postgres
+
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+
+- **[User-authentication]**
+- **[Todo-List-Functionalities]**
+
+Example command:
+
+```sh
+create-next-app
+npm run dev
+npm run build
+```
+
+### Setup
+
+Clone this repository to your desired folder:
+
+Example commands:
+
+```sh
+  cd my-folder
+  git clone https://github.com/AleWaweru/garisea.git
+```
+
+### Install
+
+Install this project with:
+
+Example command:
+
+```sh
+  cd my-project
+  gem install
+```
+
+## PROJECT LINK
+
+- PROJECT-LINK: [LINK](https://garisea-aga32eeft-alewaweru.vercel.app/)
+
+### Usage
+
+To run the project, execute the following command:
+
+Example command:
+
+```sh
+  npm run dev
+```
+
+<!-- AUTHORS -->
+
+👤 **Alex**
+
+- GitHub: [@githubhandle](https://github.com/AleWaweru/)
+- Twitter: [@twitterhandle](https://twitter.com/ngashalex)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alewaweru/)
