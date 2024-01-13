@@ -31,6 +31,7 @@ const handler = NextAuth({
           return {
             id: user.id,
             email: user.email,
+            redirectTo: "/todo",
           };
         }
 
