@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -41,7 +41,7 @@ function Form() {
         </button>
       </form>
       <span>
-        Dont have an account?{' '}
+        Dont have an account?{" "}
         <Link href="/register" className="text-blue-500">
           Register
         </Link>

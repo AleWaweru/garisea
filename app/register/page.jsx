@@ -1,25 +1,22 @@
 "use client"
-import { useEffect } from 'react';
-import { getServerSession } from 'next-auth';
-import { useRouter } from 'next/navigation';
+import { ToastContainer, toast } from 'react-toastify';
 
-import Form from './Form';
+
+import Form from "./Form";
+import RegisterCheckSession from "../components/RegisterCheckSession";
 
 const Register = () => {
-  const router = useRouter();
+ <RegisterCheckSession/>
 
-  useEffect(() => {
-    const checkSession = async () => {
-      const session = await getServerSession();
-      if (session) {
-        router.push('/'); 
-      }
-    };
+  return (
+  <div>
+    <ToastContainer />
+    <Form />
+  </div>
+    
 
-    checkSession();
-  }, [router]);
-
-  return <Form />;
+  )
+  
 };
 
 export default Register;

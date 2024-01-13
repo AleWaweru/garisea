@@ -1,10 +1,9 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ReduxProvider } from "../redux/provider";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
-import Logout from "../app/logout"
-
+import Logout from "../app/logout";
+import { getServerSession } from "next-auth";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["300", "700"] });
 
@@ -15,15 +14,18 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const session = await getServerSession();
-
   return (
     <html lang="en">
       <body className={poppins.className}>
         <ReduxProvider>
           <nav>
-            {!!session &&<Logout/>}
+            {!!session && <Logout />}
 
-            {!session && <Link href={'/login'}>Login</Link>}
+            {!session && (
+              <Link href={"/login"} className="text-blue-500">
+                Login
+              </Link>
+            )}
           </nav>
           {children}
         </ReduxProvider>

@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Link from "next/link";
 
 function Form() {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('/api/auth/register', {
-      method: 'POST',
+    const response = await fetch("/api/auth/register", {
+      method: "POST",
       body: JSON.stringify({
         username: formData.username,
         email: formData.email,
@@ -20,14 +22,18 @@ function Form() {
       }),
     });
 
-    console.log(response);
-
     if (response.ok) {
       setFormData({
-        username: '',
-        email: '',
-        password: '',
+        username: "",
+        email: "",
+        password: "",
       });
+
+      // Show success toast
+      toast.success('Registration successful!', { position: toast.POSITION.TOP_CENTER });
+    } else {
+      // Show error toast
+      toast.error('Registration failed. Please try again.', { position: toast.POSITION.TOP_CENTER });
     }
   };
 
@@ -71,7 +77,7 @@ function Form() {
         </button>
       </form>
       <span>
-        Already have an account?{' '}
+        Already have an account?{" "}
         <Link href="/login" className="text-blue-500">
           Login
         </Link>

@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 
 const TodoForm = ({ addTodo }) => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!value) return;
     addTodo(value);
-    setValue('');
+    setValue("");
   };
 
   return (

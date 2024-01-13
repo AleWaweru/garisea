@@ -1,13 +1,13 @@
-export const ADD_TODO = 'ADD_TODO';
-export const COMPLETE_TODO = 'COMPLETE_TODO';
-export const REMOVE_TODO = 'REMOVE_TODO';
-export const EDIT_TODO = 'EDIT_TODO';
-export const SET_TODOS = 'SET_TODOS';
+export const ADD_TODO = "ADD_TODO";
+export const COMPLETE_TODO = "COMPLETE_TODO";
+export const REMOVE_TODO = "REMOVE_TODO";
+export const EDIT_TODO = "EDIT_TODO";
+export const SET_TODOS = "SET_TODOS";
 
 // function to load todos from local storage
 const loadFromLocalStorage = () => {
-  if (typeof window !== 'undefined') {
-    const storedTodos = localStorage.getItem('todos');
+  if (window) {
+    const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : null;
   }
   return null;
@@ -45,8 +45,8 @@ const initialState = {
 
 // function to save todos to local storage
 const saveToLocalStorage = (todos) => {
-  if (typeof window !== 'undefined') {
-    localStorage.setItem('todos', JSON.stringify(todos));
+  if (window) {
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 };
 
@@ -65,7 +65,7 @@ export const todoReducer = (state = initialState, action) => {
       const completeState = {
         ...state,
         todos: state.todos.map((todo, i) =>
-          i === index ? { ...todo, isCompleted } : todo
+          i === index ? { ...todo, isCompleted } : todo,
         ),
       };
       saveToLocalStorage(completeState.todos);
@@ -84,7 +84,7 @@ export const todoReducer = (state = initialState, action) => {
       const editState = {
         ...state,
         todos: state.todos.map((todo, i) =>
-          i === editIndex ? { ...todo, text: newText } : todo
+          i === editIndex ? { ...todo, text: newText } : todo,
         ),
       };
       saveToLocalStorage(editState.todos);
@@ -98,6 +98,5 @@ export const todoReducer = (state = initialState, action) => {
 
     default:
       return state;
-
   }
 };

@@ -1,23 +1,9 @@
-"use client"
-import { getServerSession } from "next-auth";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+"use client";
 import Form from "./Form";
+import LoginCheckSession from "../components/LoginCheckSession"
 
 const Login = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    const checkSession = async () => {
-      const session = await getServerSession();
-      if (session) {
-        router.push("/todo");
-      }
-    };
-
-    checkSession();
-  }, [router]);
-
+  <LoginCheckSession/>
   return <Form />;
 };
 

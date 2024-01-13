@@ -1,10 +1,8 @@
-"use client"
-import TodoListItems from '../components/TodoListItems';
+"use client";
+import TodoListItems from "../components/TodoListItems";
 
 const TodoPage = () => {
-  return (
-    <TodoListItems/>
-  )
-}
+  return <TodoListItems />;
+};
 
 export default TodoPage;
