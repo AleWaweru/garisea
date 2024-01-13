@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   addTodo,
@@ -10,8 +10,13 @@ import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItems";
 
 const TodoListItems = () => {
+  const [isClient, setIsClient] = useState(false);
   const todos = useSelector((state) => state.todoReducer.todos);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleAddTodo = (text) => {
     dispatch(addTodo(text));
@@ -20,7 +25,6 @@ const TodoListItems = () => {
   const handleCompleteTodo = (index) => {
     dispatch(completeTodo(index, !todos[index].isCompleted));
   };
-  
 
   const handleRemoveTodo = (index) => {
     // Updated dispatch for removeTodo
@@ -33,22 +37,26 @@ const TodoListItems = () => {
   };
 
   return (
-    <div>
-      <div className="todo-list mx-auto w-full mt-8 p-4 md:max-w-md">
-        <h1 className="text-2xl font-bold mb-4">MY TODOLIST</h1>
-        <TodoForm addTodo={handleAddTodo} />
-        {todos.map((todo, index) => (
-          <TodoItem
-            key={todo.id || index}
-            index={index}
-            todo={todo}
-            completeTodo={handleCompleteTodo}
-            removeTodo={handleRemoveTodo}
-            editTodo={handleEditTodo}
-          />
-        ))}
-      </div>
-    </div>
+    <>
+      {isClient && (
+        <div>
+          <div className="todo-list mx-auto w-full mt-8 p-4 md:max-w-md">
+            <h1 className="text-2xl font-bold mb-4">MY TODOLIST</h1>
+            <TodoForm addTodo={handleAddTodo} />
+            {todos.map((todo, index) => (
+              <TodoItem
+                key={todo.id || index}
+                index={index}
+                todo={todo}
+                completeTodo={handleCompleteTodo}
+                removeTodo={handleRemoveTodo}
+                editTodo={handleEditTodo}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

@@ -6,12 +6,13 @@ export const SET_TODOS = "SET_TODOS";
 
 // function to load todos from local storage
 const loadFromLocalStorage = () => {
-  if (process.browser) {
+  if (typeof window !== 'undefined' && window.localStorage) {
     const storedTodos = localStorage.getItem("todos");
     return storedTodos ? JSON.parse(storedTodos) : [];
   }
   return null;
 };
+
 
 export const addTodo = (text) => ({
   type: ADD_TODO,
@@ -45,7 +46,7 @@ const initialState = {
 
 // function to save todos to local storage
 const saveToLocalStorage = (todos) => {
-  if (process.browser) {
+  if (typeof window !== 'undefined' && window.localStorage) {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
 };

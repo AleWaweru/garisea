@@ -1,3 +1,4 @@
+"use client"
 import { getServerSession } from "next-auth";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -10,7 +11,7 @@ const LoginCheckSession = () => {
       const session = await getServerSession();
       if (session) {
         router.push("/todo");
-        router.refresh();
+        // router.refresh();
       }
     };
 

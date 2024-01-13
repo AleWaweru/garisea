@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 
 const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
@@ -21,12 +22,8 @@ const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
   };
 
   return (
-    <div>
-      <div
-        className={`todo p-4 m-2 border rounded ${
-          todo.isCompleted ? "line-through" : ""
-        } bg-blue-100 shadow-md mr-7 flex flex-col`}
-      >
+    <div className="todo-item">
+      <div className={`todo p-4 m-2 border rounded ${todo.isCompleted ? "line-through" : ""} bg-blue-100 shadow-md mr-7 flex flex-col`}>
         {isEditing ? (
           // Editing state
           <div className="flex items-center md:w-[100%]">
