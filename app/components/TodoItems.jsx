@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 
 const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
@@ -23,7 +23,9 @@ const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
 
   return (
     <div className="todo-item">
-      <div className={`todo p-4 m-2 border rounded ${todo.isCompleted ? "line-through" : ""} bg-blue-100 shadow-md mr-7 flex flex-col`}>
+      <div
+        className={`todo p-4 m-2 border rounded ${todo.isCompleted ? "line-through" : ""} bg-blue-100 shadow-md mr-7 flex flex-col`}
+      >
         {isEditing ? (
           // Editing state
           <div className="flex items-center md:w-[100%]">
@@ -47,7 +49,6 @@ const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
             </button>
           </div>
         ) : (
-          // Non-editing state
           <div>
             <div className="flex-grow w-full">{todo.text}</div>
             <div className="mt-2 flex flex-wrap">
