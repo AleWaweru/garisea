@@ -32,7 +32,7 @@ const TodoListItems = () => {
   };
 
   const handleEditTodo = (index, newText) => {
-    // Updated dispatch for editTodo
+  
     dispatch(editTodo(index, newText));
   };
 
