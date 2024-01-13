@@ -37,6 +37,7 @@ const handler = NextAuth({
 
         return null;
       },
+      
     }),
   ],
 });

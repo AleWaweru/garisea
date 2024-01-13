@@ -1,8 +1,7 @@
-"use client"
+// use client
 import React, { useState } from "react";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Link from "next/link";
+import { Toaster, toast } from "react-hot-toast";
 
 function Form() {
   const [formData, setFormData] = useState({
@@ -31,10 +30,12 @@ function Form() {
       });
 
       // Show success toast
-      toast.success('Registration successful!', { position: toast.POSITION.TOP_CENTER });
+      toast.success("Registration successful!", { position: "top-center" });
     } else {
       // Show error toast
-      toast.error('Registration failed. Please try again.', { position: toast.POSITION.TOP_CENTER });
+      toast.error("Registration failed. Please try again.", {
+        position: "top-center",
+      });
     }
   };
 
@@ -48,6 +49,8 @@ function Form() {
 
   return (
     <div className="flex flex-col items-center gap-4 mx-auto max-w-md mt-10 p-6 bg-white rounded-md shadow-md">
+      <Toaster position="top-center" reverseOrder={false} />
+
       <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
         <input
           className="border border-gray-300 rounded px-4 py-2"
@@ -56,6 +59,7 @@ function Form() {
           placeholder="Name"
           value={formData.username}
           onChange={handleChange}
+          required
         />
         <input
           className="border border-gray-300 rounded px-4 py-2"
@@ -64,6 +68,7 @@ function Form() {
           placeholder="Email"
           value={formData.email}
           onChange={handleChange}
+          required
         />
         <input
           className="border border-gray-300 rounded px-4 py-2"
@@ -72,6 +77,7 @@ function Form() {
           placeholder="Password"
           value={formData.password}
           onChange={handleChange}
+          required
         />
         <button className="bg-blue-500 text-white rounded py-2" type="submit">
           Register

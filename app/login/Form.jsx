@@ -28,12 +28,14 @@ function Form() {
           type="email"
           name="email"
           placeholder="Email"
+          required
         />
         <input
           className="border border-gray-300 rounded px-4 py-2"
           type="password"
           name="password"
           placeholder="Password"
+          required
         />
         <button className="bg-blue-500 text-white rounded py-2" type="submit">
           Login
