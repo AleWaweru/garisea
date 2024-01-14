@@ -5,6 +5,7 @@ import {
   completeTodo,
   removeTodo,
   editTodo,
+  removeCompletedTodos,
 } from "../../redux/reducer/reducers";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItems";
@@ -27,13 +28,15 @@ const TodoListItems = () => {
   };
 
   const handleRemoveTodo = (index) => {
-  
     dispatch(removeTodo(index));
   };
 
   const handleEditTodo = (index, newText) => {
-  
     dispatch(editTodo(index, newText));
+  };
+
+  const handleRemoveCompletedTodos = () => {
+    dispatch(removeCompletedTodos());
   };
 
   return (
@@ -43,6 +46,12 @@ const TodoListItems = () => {
           <div className="todo-list mx-auto w-full mt-8 p-4 md:max-w-md">
             <h1 className="text-2xl font-bold mb-4">MY TODOLIST</h1>
             <TodoForm addTodo={handleAddTodo} />
+            <button
+              className="bg-red-500 text-white rounded py-2 m-4 "
+              onClick={handleRemoveCompletedTodos}
+            >
+              Remove Completed
+            </button>
             {todos.map((todo, index) => (
               <TodoItem
                 key={todo.id || index}

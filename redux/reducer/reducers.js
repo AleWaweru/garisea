@@ -1,8 +1,10 @@
+// reducers.js
 export const ADD_TODO = "ADD_TODO";
 export const COMPLETE_TODO = "COMPLETE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
 export const EDIT_TODO = "EDIT_TODO";
 export const SET_TODOS = "SET_TODOS";
+export const REMOVE_COMPLETED_TODOS = "REMOVE_COMPLETED_TODOS"; // New action type
 
 // function to load todos from local storage
 const loadFromLocalStorage = () => {
@@ -12,7 +14,6 @@ const loadFromLocalStorage = () => {
   }
   return null;
 };
-
 
 export const addTodo = (text) => ({
   type: ADD_TODO,
@@ -29,12 +30,15 @@ export const removeTodo = (index) => ({
   payload: index,
 });
 
+export const removeCompletedTodos = () => ({
+  type: REMOVE_COMPLETED_TODOS,
+});
+
 export const editTodo = (index, newText) => ({
   type: EDIT_TODO,
   payload: { index, newText },
 });
 
-// action creator for setting todos
 export const setTodos = (todos) => ({
   type: SET_TODOS,
   payload: todos,
@@ -44,7 +48,6 @@ const initialState = {
   todos: loadFromLocalStorage() || [],
 };
 
-// function to save todos to local storage
 const saveToLocalStorage = (todos) => {
   if (typeof window !== 'undefined' && window.localStorage) {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -79,6 +82,14 @@ export const todoReducer = (state = initialState, action) => {
       };
       saveToLocalStorage(removeState.todos);
       return removeState;
+
+    case REMOVE_COMPLETED_TODOS: // New case for removing completed todos
+      const removeCompletedState = {
+        ...state,
+        todos: state.todos.filter((todo) => !todo.isCompleted),
+      };
+      saveToLocalStorage(removeCompletedState.todos);
+      return removeCompletedState;
 
     case EDIT_TODO:
       const { index: editIndex, newText } = action.payload;

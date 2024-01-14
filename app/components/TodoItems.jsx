@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 
 const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
@@ -24,29 +23,33 @@ const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
   return (
     <div className="todo-item">
       <div
-        className={`todo p-4 m-2 border rounded ${todo.isCompleted ? "line-through" : ""} bg-blue-100 shadow-md mr-7 flex flex-col`}
+        className={`todo p-4 m-2 border rounded ${
+          todo.isCompleted ? "line-through" : ""
+        } bg-blue-100 shadow-md md:flex md:flex-col`}
       >
         {isEditing ? (
           // Editing state
-          <div className="flex items-center md:w-[100%]">
+          <div className="flex flex-col md:flex-row items-center">
             <input
               type="text"
-              className="border rounded py-2 px-3 mr-2 focus:outline-none flex-grow md:w-[80%]"
+              className="border rounded py-2 px-3 mr-2 focus:outline-none flex-grow"
               value={editText}
               onChange={(e) => setEditText(e.target.value)}
             />
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
-              onClick={handleSaveEdit}
-            >
-              Save
-            </button>
-            <button
-              className="bg-gray-500 hover:bg-gray-700 text-white md:w-[40%] font-bold py-2 px-4 ml-2"
-              onClick={handleCancelEdit}
-            >
-              Cancel
-            </button>
+            <div className="flex flex-row mt-2 md:mt-0">
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 m-2"
+                onClick={handleSaveEdit}
+              >
+                Save
+              </button>
+              <button
+                className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 m-2"
+                onClick={handleCancelEdit}
+              >
+                Cancel
+              </button>
+            </div>
           </div>
         ) : (
           <div>
@@ -58,15 +61,14 @@ const TodoItem = ({ todo, index, completeTodo, removeTodo, editTodo }) => {
               >
                 Complete
               </button>
-
               <button
-                className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 m-2 flex-grow "
+                className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 m-2 flex-grow"
                 onClick={handleEditClick}
               >
                 Edit
               </button>
               <button
-                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 m-2 flex-grow md:w-1/3"
+                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 m-2 flex-grow"
                 onClick={() => removeTodo(index)}
               >
                 X
