@@ -1,12 +1,10 @@
-// reducers.js
 export const ADD_TODO = "ADD_TODO";
 export const COMPLETE_TODO = "COMPLETE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
 export const EDIT_TODO = "EDIT_TODO";
 export const SET_TODOS = "SET_TODOS";
-export const REMOVE_COMPLETED_TODOS = "REMOVE_COMPLETED_TODOS"; // New action type
+export const REMOVE_COMPLETED_TODOS = "REMOVE_COMPLETED_TODOS"; 
 
-// function to load todos from local storage
 const loadFromLocalStorage = () => {
   if (typeof window !== 'undefined' && window.localStorage) {
     const storedTodos = localStorage.getItem("todos");
