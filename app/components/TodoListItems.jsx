@@ -27,7 +27,7 @@ const TodoListItems = () => {
   };
 
   const handleRemoveTodo = (index) => {
-    // Updated dispatch for removeTodo
+  
     dispatch(removeTodo(index));
   };
 
